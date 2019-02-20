@@ -40,6 +40,14 @@ Then, openbts commands can be issued, for example:
 
     > config Control.LUR.OpenRegistration .*
 
+Running the container in a CorteXlab task
+-----------------------------------------
+
+Create the task with the following command for the nodes where you
+want to run openbts:
+
+    $ docker run --rm --privileged --net=host --name=openbts openbts-xenial
+
 Additionnal notes
 -----------------
 
@@ -65,3 +73,13 @@ Additionnal notes
   by commenting the following line at the end of the Dockerfile:
 
         RUN systemctl enable openbts
+
+- An OpenSSH server is running inside the container on port 39775,
+  allowing to connect to the running container. For example, when
+  running the container inside CorteXlab, it allows connecting, as
+  cxlbadm, from airlock to the container on a node with a command such
+  as:
+
+        $ ssh -p 39775 cxlbadm@mnode<node_number>
+
+  It is then possible to sudo (without password) to root if needed.

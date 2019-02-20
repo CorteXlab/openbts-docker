@@ -60,3 +60,7 @@ RUN systemctl enable openbts
 
 WORKDIR /OpenBTS
 CMD [ "/sbin/init" ]
+
+RUN ${APT} install openssh-server
+RUN sed -i 's/^Port 22$/Port 39775/' /etc/ssh/sshd_config
+RUN sed -i 's/^PermitEmptyPasswords no$/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
