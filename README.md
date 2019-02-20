@@ -17,6 +17,8 @@ Pushing the image to dockerhub:
     $ docker tag <image_id> m1mbert/openbts-xenial:<image_version>
     $ docker push m1mbert/openbts-xenial
 
+Docker image repository is here: https://hub.docker.com/r/m1mbert/openbts-xenial
+
 Running the container
 ---------------------
 
