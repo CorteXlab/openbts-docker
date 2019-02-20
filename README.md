@@ -12,12 +12,18 @@ With old docker (likely <= 1.x):
 
     $ docker build -t openbts-xenial .
 
+Pushing the image to dockerhub:
+
+    $ docker tag <image_id> m1mbert/openbts-xenial:<image_version>
+    $ docker push m1mbert/openbts-xenial
+
 Running the container
 ---------------------
 
 To run the container:
 
-    $ docker run -dti --privileged --net=host --name=openbts openbts-xenial
+    $ docker pull m1mbert/openbts-xenial:<image_version>
+    $ docker run -dti --privileged --net=host --name=openbts m1mbert/openbts-xenial:<image_version>
 
 By default, running the container automatically starts openbts inside
 the container.
@@ -46,7 +52,7 @@ Running the container in a CorteXlab task
 Create the task with the following command for the nodes where you
 want to run openbts:
 
-    $ docker run --rm --privileged --net=host --name=openbts openbts-xenial
+    $ docker run --rm --privileged --net=host --name=openbts m1mbert/openbts-xenial:<image_version>
 
 Additionnal notes
 -----------------
